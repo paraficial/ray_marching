@@ -9,7 +9,7 @@ const int MAX_STEPS = 64;
 const int MAX_DIST = 64;
 const float SURF_DIST = 0.01;
 float st = sin(time);
-float ct = cos(time);
+float ct = cos(time*0.001);
 
 vec4 getDist(vec3 p) {
     float st = sin(time);

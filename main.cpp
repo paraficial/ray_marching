@@ -60,12 +60,12 @@ int main(int argc, char *argv[], char *envp[])
     glBindBuffer(GL_ARRAY_BUFFER, vertexData_id);
     glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 18, vertexData, GL_STATIC_DRAW);
     glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
     // shader stuff
-    Shader *shader = new Shader("../rayMarching01/shader.vert", "../rayMarching01/shader.frag");
+    Shader *shader = new Shader("../ray_marching/shaders/shader.vert", "../ray_marching/shaders/shader_old.frag");
 
     // uniforms
     GLint time_id = glGetUniformLocation(shader->ID, "time");
@@ -75,7 +75,7 @@ int main(int argc, char *argv[], char *envp[])
     std::cout << "resolution: " << resolution_id << std::endl;
 
     GLfloat time = 0;
-    GLfloat resolution[2] = {width, height};
+    GLfloat resolution[2] = {(GLfloat) width, (GLfloat) height};
 
     // loop
     bool loop = true;
