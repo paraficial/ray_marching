@@ -16,8 +16,8 @@ GLfloat vertexData[18] = {-1.0f, -1.0f, 0.0f,
 
 int main(int argc, char *argv[], char *envp[])
 {
-    int width = 1024;
-    int height = 1024;
+    int width = 512;
+    int height = 512;
 
     if (argc == 3) {
         width = atoi(argv[1]);
@@ -29,7 +29,7 @@ int main(int argc, char *argv[], char *envp[])
     }
 
     SDL_Window *window = SDL_CreateWindow(
-                "Ray Marching",
+                "ray marching",
                 SDL_WINDOWPOS_CENTERED,
                 SDL_WINDOWPOS_CENTERED,
                 width,
@@ -47,7 +47,7 @@ int main(int argc, char *argv[], char *envp[])
     glewInit();
 
     // draw stuff
-    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    glClearColor(0.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     SDL_GL_SwapWindow(window);
 
@@ -65,7 +65,7 @@ int main(int argc, char *argv[], char *envp[])
     glBindVertexArray(0);
 
     // shader stuff
-    Shader *shader = new Shader("../ray_marching/shaders/shader.vert", "../ray_marching/shaders/shader_old.frag");
+    Shader *shader = new Shader("/home/gw/documents/projects/ray_marching/shaders/shader.vert", "/home/gw/documents/projects/ray_marching/shaders/shader_old.frag");
 
     // uniforms
     GLint time_id = glGetUniformLocation(shader->ID, "time");
